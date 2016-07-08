@@ -1,0 +1,134 @@
+/* ================================================================================
+   common
+   ================================================================================ */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  /* src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'), url(https://example.com/MaterialIcons-Regular.woff) format('woff'), url(https://example.com/MaterialIcons-Regular.ttf) format('truetype'); */
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+body {
+  font-family: -apple-system, ‘Helvetica Neue’, ‘Hiragino Kaku Gothic ProN’, ‘游ゴシック Medium’, ‘メイリオ’, meiryo, sans-serif;
+}
+/* ================================================================================
+   header
+   ================================================================================ */
+.header {
+  border-bottom: 2px solid #37473f;
+  -moz-box-shadow:0px 1px 3px 0px #78909c;
+  -webkit-box-shadow:0px 1px 3px 0px #78909c;
+  box-shadow:0px 1px 3px 0px #78909c;
+  font-family: 'Oswald', sans-serif;
+  padding-top: 15px;
+  position: relative;
+}
+  .header__title {
+    color: #263238;
+    font-size: 32px;
+    line-height: 1.5;
+    min-width: 1000px;
+    text-align: center;
+  }
+    .header__title span {
+      color: #2196f3;
+    }
+  .header__nav {
+    display: -webkit-flex;
+    display: flex;
+    margin: 0 auto;
+    width: 1000px;
+  }
+    .header__nav__item {
+      -webkit-flex-grow: 1;
+      flex-grow: 1;
+      line-height: 1.5;
+      margin-top: 10px;
+      text-align: center;
+    }
+      .header__nav__item a {
+        color: #37473f;
+        display: inline-block;
+        font-size: 18px;
+        height: 100%;
+        position: relative;
+        text-decoration: none;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+        overflow: hidden;
+        width: 100%;
+      }
+      .header__nav__item a:hover {
+        color: #ffffff;
+      }
+      .header__nav__item a:hover::after {
+        top: 0;
+        background-color: #37473f;
+        z-index: -1;
+      }
+      .header__nav__item a::after {
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: -100%;
+        transition: all .3s;
+        left: 0;
+        width: 100%;
+      }
+      .header__nav__item a .material-icons {
+        color: #2196f3;
+      }
+  .header__social {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+
+/* ================================================================================
+   container
+   ================================================================================ */
+.container {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+/* ================================================================================
+   slider
+   ================================================================================ */
+.slider {
+  margin: 10px auto 0;
+  width: 800px;
+}
+.slider:after {
+  content: '';
+  clear: both;
+  display: block;
+  height: 0;
+}
+  /* bx-slider override */
+  .flex-control-nav {
+    position: static;
+    margin-top: 15px;
+  }
