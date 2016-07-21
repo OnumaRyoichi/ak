@@ -31,6 +31,7 @@ var loadingScreen = function() {
 loadingScreen.prototype = {
 	initialize: function() {
 		this.createLoadingContent();
+		this.startLoadingAnimation();
 		this.bindEvent();
 	},
 	bindEvent: function() {
@@ -39,8 +40,18 @@ loadingScreen.prototype = {
 			_self.hideContent();
 		});
 	},
+	startLoadingAnimation: function() {
+		$('.jsc_loadingContent').css({ 'opacity': 1 });
+		for (var i = 0; i <= $('.jsc_loadingContent').children().size(); i++) {
+			$('.jsc_loadingContent').children('span:eq('+i+')').delay(50*i).animate({'opacity':1},50);
+		}
+	},
 	createLoadingContent: function() {
-
+		$('.jsc_loadingContent').children().andSelf().contents().each(function() {
+		  if (this.nodeType == 3) {
+		    $(this).replaceWith($(this).text().replace(/(\S)/g, '<span>$1</span>'));
+		  }
+		});
 	},
 	hideContent: function() {
 		$('.jsc_loader').delay(2000).fadeOut(2000);
