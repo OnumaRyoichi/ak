@@ -4,7 +4,7 @@ var headerLayout = function() {
 };
 headerLayout.prototype = {
 	initialize: function() {
-		$('.container').css('margin-top', $('.jsc_header').height() + 30);
+		$('.container').css('margin-top', $('.jsc_header').height() + 50);
 		this.bindEvent();
 	},
 	bindEvent: function() {
@@ -30,7 +30,6 @@ var loadingScreen = function() {
 };
 loadingScreen.prototype = {
 	initialize: function() {
-		this.createLoadingContent();
 		this.startLoadingAnimation();
 		this.bindEvent();
 	},
@@ -45,13 +44,6 @@ loadingScreen.prototype = {
 		for (var i = 0; i <= $('.jsc_loadingContent').children().size(); i++) {
 			$('.jsc_loadingContent').children('span:eq('+i+')').delay(50*i).animate({'opacity':1},50);
 		}
-	},
-	createLoadingContent: function() {
-		$('.jsc_loadingContent').children().andSelf().contents().each(function() {
-		  if (this.nodeType == 3) {
-		    $(this).replaceWith($(this).text().replace(/(\S)/g, '<span>$1</span>'));
-		  }
-		});
 	},
 	hideContent: function() {
 		$('.jsc_loader').delay(2000).fadeOut(2000);

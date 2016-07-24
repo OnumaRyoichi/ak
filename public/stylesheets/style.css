@@ -172,8 +172,10 @@ body {
    slider
    ================================================================================ */
 .slider {
-  margin: 10px auto 0;
-  width: 800px;
+  margin: 0 auto;
+  width: 1000px;
+  /* bx-slider override */
+  border: 0;
 }
 .slider:after {
   content: '';
@@ -184,16 +186,33 @@ body {
   /* bx-slider override */
   .flex-control-nav {
     position: static;
-    margin-top: 15px;
+    margin-top: 25px;
   }
+  /* ================================================================================
+     service
+     ================================================================================ */
+.service	{
+	margin-top: 25px;
+}
+	.service__headLine {
+		font-size: 24px;
+		font-family: 'Oswald', sans-serif;
+		border-bottom: 2px solid #2196f3;
+		padding-bottom: 5px;
+		text-align: center;
+	}
+		.service__headLine span {
+			color: #2196f3;
+		}
 
 /* ================================================================================
-   slider
+   footer
    ================================================================================ */
 .footer {
   border-top: 4px solid #2196f3;
   margin-top: 20px;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
   .footer__text {
     color: #37473f;
