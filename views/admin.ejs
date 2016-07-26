@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<title>admin April-Knights</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/images/favicon.ico" />
+		<link rel='stylesheet' href='/stylesheets/reset.css' />
+		<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Oswald' type='text/css'>
+		<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel='stylesheet' href='/stylesheets/flexslider.css' />
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+	</head>
+	<body>
+		<h1>admin april-knights</h1>
+		<h2 style="margin-top: 20px;">news list</h2>
+		<ul style="margin-top: 10px; margin-left: 10px;">
+			<% newsList.forEach(function(news) { %>
+				<li>
+					<form action="/admin/destoroy" method="post">
+						<input type="hidden" name="_method" value="delete">
+						<input type="hidden" name="_csrf" value="<%= csrf %>">
+						<input type="hidden" name="_id" value="<%= news._id %>">
+						<p>
+							<a href="/admin"><%= news.title %></a>
+							<span>created: <%= news.created.toDateString() %></span>
+						</p>
+						<button style="margin-top: 5px;" type="submit" onclick="return confirm('really want to delete ?')">delete</button>
+					</form>
+				</li>
+			<% }) %>
+		</ul>
+		<div style="margin-top: 20px;">
+			<form action="/admin/create" method="post">
+				<input type="hidden" name="_csrf" value="<%= csrf %>">
+				<p>
+					<input type="text" name="title" value="" size="60">
+					<% if(errors && errors.title) { %>
+						<p><%= errors.title.message %></p>
+					<% } %>
+				</p>
+				<p><textarea name="contents" cols="60" rows="12"></textarea></p>
+				<p><button type="submit">create</button></p>
+			</form>
+		</div>
+		<script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<script src="/javascripts/jquery.flexslider.js"></script>
+		<script src="/javascripts/common.js"></script>
+	</body>
+</html>

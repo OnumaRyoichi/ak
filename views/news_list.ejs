@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>April-Knights</title>
+		<title>April-Knights <%= title %></title>
 		<meta name="description" content="エンジニアリング事業/e-Sportsを中心にWeb業界にイノベーションを起こし続ける株式会社エイプリルナイツのホームページです。" />
 		<meta name="keywords" content="AprilKnights,エイプリルナイツ,SES,パートナー,e-Sports,e-Sports採用,e-Sports求人,エンジニア派遣" />
 		<meta charset="utf-8" />
@@ -13,21 +13,22 @@
 		<link rel='stylesheet' href='/stylesheets/style.css' />
 	</head>
 	<body>
-		<% include ./components/_loader.ejs %>
-		<% include ./components/_header.ejs %>
-		<div class="container" style="height:2000px">
-			<div class="slider flexslider">
-				<ul class="slider__items slides">
-					<li><img src="http://dummyimage.com/1000x400/666666/fff"></li>
-					<li><img src="http://dummyimage.com/1000x400/999999/fff"></li>
-					<li><img src="http://dummyimage.com/1000x400/cccccc/fff"></li>
-				</ul>
-			</div>
-			<div class="service">
-				<h2 class="service__headLine"><span>S</span>ervice</h2>
-			</div>
-		</div>
-		<% include ./components/_footer.ejs %>
+		<h1><%= title %></h1>
+		<ul>
+			<% posts.forEach(function(post) { %>
+				<li>
+					<form action="admin/destroy">
+						<input type="hidden" name="_method" value="delete">
+						<input type="hidden" name="_csrf" value="<%= scrf %>">
+						<input type="hidden" name="_id" value="<%= post.id %>">
+						<a href="admin/edit/<%= post._id %>"><%= post.itle %></a>
+						<p>created: <%= post.created.toDateString() %></p>
+						<button type="submit" onclick="return confirm('really deletion ?')">delete</button>
+					</form>
+				</li>
+			<% }) %>
+		</ul>
+		<p><a href="/admin/new">create news</a></p>
 		<script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 		<script src="/javascripts/jquery.flexslider.js"></script>
 		<script src="/javascripts/common.js"></script>
