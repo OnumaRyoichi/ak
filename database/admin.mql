@@ -1,0 +1,2 @@
+db.createCollection('admin_account');
+db.admin_account.insert({'id': 'admin', 'password': 'admin'});
