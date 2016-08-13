@@ -13,6 +13,7 @@ var routes = require('./routes/index');
 var company = require('./routes/company');
 var admin = require('./routes/admin');
 var admin_login = require('./routes/admin_login');
+var recruit = require('./routes/recruit');
 
 var app = express();
 
@@ -50,6 +51,7 @@ app.use('/', routes);
 app.use('/company', company);
 app.use('/admin', admin);
 app.use('/admin/login', admin_login);
+app.use('/recruit', recruit);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
