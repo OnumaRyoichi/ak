@@ -36,6 +36,7 @@ router.get('/', function(req, res, nex) {
 			newsList: newsList,
 			errors: req.flash('errors').shift()
 		});
+		console.log(newsList);
 	});
 });
 
