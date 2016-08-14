@@ -15,6 +15,8 @@ var admin = require('./routes/admin');
 var admin_login = require('./routes/admin_login');
 var recruit = require('./routes/recruit');
 var service = require('./routes/service');
+var contact = require('./routes/contact');
+var news = require('./routes/news');
 
 var app = express();
 
