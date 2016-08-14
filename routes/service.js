@@ -4,6 +4,7 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.render('recruit', {});
+  console.log('TASK SINE');
 });
 
 router.get('/esports', function(req, res, next) {
