@@ -6,4 +6,12 @@ router.get('/', function(req, res, next) {
   res.render('recruit', {});
 });
 
+router.get('/new', function(req, res, next) {
+  res.render('new', {});
+});
+
+router.get('/career', function(req, res, next) {
+  res.render('career', {});
+});
+
 module.exports = router;
