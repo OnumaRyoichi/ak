@@ -57,8 +57,7 @@ app.use('/admin/login', admin_login);
 app.use('/recruit', recruit);
 app.use('/service', service);
 app.use('/contact', contact);
-app.use('news', news);
-
+app.use('/news', news);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
